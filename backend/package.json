@@ -9,6 +9,7 @@
     "start": "node dist/server.js"
   },
   "dependencies": {
+    "@fastify/cookie": "^11.0.2",
     "@fastify/cors": "^11.2.0",
     "abstract-logging": "^2.0.1",
     "acorn": "^8.16.0",

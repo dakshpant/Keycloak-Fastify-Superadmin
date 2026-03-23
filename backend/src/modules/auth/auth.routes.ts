@@ -4,12 +4,18 @@ import { verifyJwt } from "../../plugins/jwt.plugin";
 
 export async function authRoutes(fastify: FastifyInstance) {
 
-    //Initializer controller class
     const controller = new AuthController();
 
-    //Register routes
+    // Login
     fastify.post("/login", controller.login);
-    fastify.post("/refresh", controller.refreshToken);
-    fastify.get("/profile", { preHandler: verifyJwt }, controller.profile);
 
+    // Refresh token
+    fastify.post("/refresh", controller.refreshToken);
+
+    // Get profile
+    fastify.get(
+        "/profile",
+        { preHandler: verifyJwt },
+        controller.profile
+    );
 }
